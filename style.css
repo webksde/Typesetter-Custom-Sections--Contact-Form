@@ -1,0 +1,21 @@
+/* #### custom styles for demo section type 'shop item' ### */
+/* TODO: Seperate backend backend from frontend styles */
+
+/* Fix Textarea default behavoir (no line breaks per default) */
+.editor-ctl-box textarea{
+  white-space:pre !important;
+}
+
+/* Required Fields */
+.form-item--required .control-label::after{
+  content:"*";
+  margin-left:.25em;
+}
+
+/* JS Validation */
+.form-item.has-error .contact-form-validation-icon{
+  color:#fff;
+}
+.form-item .input-group-addon{
+  padding-right:28px;
+}
