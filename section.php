@@ -31,7 +31,7 @@ $section['values'] = array_merge(array(
       'machine_name'        => $tString['fieldMachineNameValue'],
       'placeholder'         => $tString['fieldPlaceholderValue'], // control_type = text
       'description_on_error'=> '0', // control_type = checkbox
-      'description'         => $tString['fieldDescValue'], // control_type = ck_editor
+      'description'         => $tString['fieldDescValue'], // control_type = text
       'prefix'              => $tString['fieldPrefixLabel'], // control_type = text
       'suffix'              => $tString['fieldSuffixLabel'], // control_type = text
     ),
@@ -88,8 +88,9 @@ foreach($section['values']['form_items'] as $form_item) {
   // Preprocess common values:
   $machine_name = filter_var($form_item['machine_name'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
   $placeholder  = filter_var(trim($form_item['placeholder']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-  $description  = filter_var(trim($description, FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+  $description  = filter_var(trim($form_item['description'], FILTER_SANITIZE_FULL_SPECIAL_CHARS));
 
+  $settings['helpText'] = '';
   if (!empty($description)) {
     $settings['helpText'] = '<span class="help-block'.($form_item['description_on_error'] !== '1' ? ' help-block--permanent' : ' help-block--on-error hidden').'">' . $description . '</span>';
   }
